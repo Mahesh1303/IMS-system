@@ -1,13 +1,15 @@
-const express = require('express')
-const { HandleUserRegister, HandleUserLogin, HandleUserLogout } = require('../controller/UserControl')
-const { VerifyCookie } = require('../middlewares/UserAuth')
+import { Router } from "express";
+import {
+  HandleUserRegister,
+  HandleUserLogin,
+  HandleUserLogout,
+} from "../controller/UserControl.js";
+import { VerifyCookie } from "../middlewares/UserAuth.js";
 
-const UserRoute = express.Router()
+const UserRoute = Router();
 
-UserRoute.post('/register' , HandleUserRegister)
-UserRoute.post('/login' , HandleUserLogin)
-UserRoute.post('/logout' , VerifyCookie,HandleUserLogout)
+UserRoute.post("/register", HandleUserRegister);
+UserRoute.post("/login", HandleUserLogin);
+UserRoute.post("/logout", VerifyCookie, HandleUserLogout);
 
-
-
-module.exports={UserRoute}
+export { UserRoute };
