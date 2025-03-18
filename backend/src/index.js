@@ -1,12 +1,11 @@
-const express = require("express");
-const { connect } = require("./connection");
-const { UserRoute } = require("./routes/UserRoutes");
-const { SecureUserroutes } = require("./routes/SecureUserRoutes");
-const cookieParser = require("cookie-parser");
-
-const cors = require("cors");
-const { InventortRoutes } = require("./routes/InventoryRoutes");
-const { DATABASE_URL, PORT } = require("./constant");
+import express from "express";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+import { connect } from "./connection.js";
+import { UserRoute } from "./routes/UserRoutes.js";
+import { SecureUserroutes } from "./routes/SecureUserRoutes.js";
+import { InventortRoutes } from "./routes/InventoryRoutes.js";
+import { DATABASE_URL, PORT } from "./constant.js";
 
 const app = express();
 const port = PORT || 3030;

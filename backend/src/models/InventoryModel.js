@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const InventorySchema = new mongoose.Schema({
   productName: {
@@ -9,7 +9,16 @@ const InventorySchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    enum: ['Electronics', 'Furniture', 'Clothing', 'Groceries', 'Toys' , 'Office Supplies'], 
+    enum: [
+      "Electronics",
+      "Furniture",
+      "Clothing",
+      "Groceries",
+      "Toys",
+      "Appliances",
+      "Office Supplies",
+      "Other"
+    ],
   },
 
   quantity: {
@@ -24,9 +33,9 @@ const InventorySchema = new mongoose.Schema({
   createdBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "user",
-},
+  },
 });
 
-const InventoryDb = mongoose.model("Inventory", InventorySchema); 
+const InventoryDb = mongoose.model("Inventory", InventorySchema);
 
-module.exports = InventoryDb;
+export { InventoryDb };
